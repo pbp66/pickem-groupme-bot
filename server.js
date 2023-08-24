@@ -1,6 +1,6 @@
 import express from "express";
-// import db from "./config/connection.js";
-// import routes from "./routes/index.js";
+import db from "./config/connection.js";
+import routes from "./routes/index.js";
 
 const cwd = process.cwd(); //cwd is current working directory
 
@@ -14,14 +14,14 @@ const activity = cwd.includes("pickem-groupme-bot")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(routes);
+app.use(routes);
 
 app.listen(PORT, () => {
 	console.log(`API server for ${activity} running on port ${PORT}!`);
 });
 
-// db.once("open", () => {
-// 	app.listen(PORT, () => {
-// 		console.log(`API server for ${activity} running on port ${PORT}!`);
-// 	});
-// });
+db.once("open", () => {
+	app.listen(PORT, () => {
+		console.log(`API server for ${activity} running on port ${PORT}!`);
+	});
+});
