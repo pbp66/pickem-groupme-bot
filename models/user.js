@@ -1,14 +1,22 @@
 import { Schema, model } from "mongoose";
 import { DateTime } from "luxon";
 
-const roleSchema = new Schema({
-	role: {
-		type: String,
-		required: true,
-		unique: false,
-		trim: true,
+const roleSchema = new Schema(
+	{
+		role: {
+			type: String,
+			required: true,
+			unique: false,
+			trim: true,
+		},
 	},
-});
+	{
+		toJSON: {
+			virtuals: true,
+		},
+		id: false,
+	}
+);
 
 const userSchema = new Schema(
 	{
@@ -41,7 +49,6 @@ const userSchema = new Schema(
 	{
 		toJSON: {
 			virtuals: true,
-			getters: true,
 		},
 		id: false,
 	}
