@@ -3,8 +3,9 @@ import chalk from "chalk";
 
 const logger = (req, res, next) => {
 	console.log(
-		chalk.white.bgBlue.bold(`\n${req.method} request hit path ${req.url}`)
+		chalk.black.bgBlue.bold(`\n${req.method} request hit path ${req.url}\n`)
 	);
+	console.log(req.body);
 
 	next();
 };
