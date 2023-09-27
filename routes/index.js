@@ -8,6 +8,6 @@ router.use(logger);
 
 router.use("/api", apiRoutes);
 
-router.use((req, res) => res.send("Wrong Route!"));
+router.use("*", (req, res) => res.send("Wrong Route!"));
 
 export default router;

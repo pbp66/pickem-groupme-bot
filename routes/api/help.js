@@ -1,8 +1,7 @@
-import { Router } from "express";
-const router = new Router();
-
+import express from "express";
+const router = express.Router();
 import { getHelp } from "../../controllers/helpControllers.js";
 
-router.route("/").get(getHelp);
+router.get("/", getHelp);
 
 export default router;

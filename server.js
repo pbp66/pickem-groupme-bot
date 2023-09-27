@@ -2,6 +2,9 @@ import express from "express";
 import db from "./config/connection.js";
 import routes from "./routes/index.js";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const cwd = process.cwd(); //cwd is current working directory
 
 const PORT = process.env.PORT || 3001;
