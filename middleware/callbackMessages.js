@@ -18,9 +18,35 @@ function createCallbackObject(obj) {
 	);
 }
 
+function isValidMessage(message) {
+	// TODO: Verify message is valid:
+	/*
+	 * sender_type is user
+	 * first character is a "/"
+	 * attachment types are valid: emoji, reply, and/or mention
+	 */
+}
+
+function isValidCommand(command) {
+	// TODO: Validate that the command is contained within the list of available commands
+}
+
 const callbackHandler = (req, res, next) => {
 	const callbackMsg = createCallbackObject(req.body);
+	if (!isValidMessage(callbackMsg)) {
+		next();
+	}
 
+	const command = callbackMsg.text.match(/^\/[a-zA-Z]+/)[0];
+
+	if (isValidCommand(command)) {
+		// TODO: route to appropriate controller
+	} else {
+		// TODO: Either error handling or do nothing
+		//? next();
+	}
+
+	// TODO: Add console log indicating redirected route/path of message/command
 	next();
 };
 
