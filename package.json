@@ -27,5 +27,8 @@
 		"luxon": "^3.4.1",
 		"mongodb": "^6.1.0",
 		"mongoose": "^7.4.4"
+	},
+	"devDependencies": {
+		"nodemon": "^3.0.1"
 	}
 }
