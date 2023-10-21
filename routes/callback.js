@@ -1,7 +1,10 @@
 import { Router } from "express";
 const router = new Router();
 
-import { createMessage } from "../../controllers/callbackControllers.js";
+import { createMessage } from "../controllers/callbackControllers.js";
+import callbackHandler from "../middleware/callbackMessages.js";
+
+router.use(callbackHandler);
 
 router.post("/", createMessage);
 
